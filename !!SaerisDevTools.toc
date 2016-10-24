@@ -1,0 +1,10 @@
+## Interface: 70000
+## Title: SaerisDevTools
+## Notes: Custom addon development tools, for Saeris, by Saeris.
+## Author: Saeris
+
+global.lua
+dump.lua
+tests.lua
+focus.lua
+commands.lua
