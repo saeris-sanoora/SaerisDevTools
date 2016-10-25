@@ -1,4 +1,4 @@
-## Interface: 70000
+## Interface: 70100
 ## Title: SaerisDevTools
 ## Notes: Custom addon development tools, for Saeris, by Saeris.
 ## Author: Saeris
