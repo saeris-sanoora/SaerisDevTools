@@ -1,4 +1,4 @@
-local addonName, addon = ...
+local addon = select(2, ...)
 
 local kCommandHandlers = {
 	details = function(elem)
@@ -22,8 +22,8 @@ local kCommandHandlers = {
 
 function addon.tweakFocus(how)
 	local elem = _G.GetMouseFocus()
-	local message = '%s: focus="%s", request="%s", result follows'
-	print(message:format(addonName, elem:GetName(), how))
+	local message = '>> focus="%s", request="%s", result follows'
+	print(message:format(elem:GetName(), how))
 	local command, args = how:match('^(%S+)%s*(.*)')
 	if command then
 		local handler = kCommandHandlers[command]

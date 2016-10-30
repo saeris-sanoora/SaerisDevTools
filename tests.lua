@@ -1,4 +1,4 @@
-local addonName, addon = ...
+local addon = select(2, ...)
 
 local testsByAddon = {}
 
@@ -72,24 +72,24 @@ local kAssertHelpers = {
 	end,
 }
 
-function addon.registerTest(addon, func, test)
-	testsByAddon[addon] = testsByAddon[addon] or {}
-	table.insert(testsByAddon[addon], { func = func, test = test })
+function addon.registerTest(addonName, func, test)
+	testsByAddon[addonName] = testsByAddon[addonName] or {}
+	table.insert(testsByAddon[addonName], { func = func, test = test })
 end
 
-function addon.runTests(addon)
-	local tests = testsByAddon[addon]
+function addon.runTests(addonName)
+	local tests = testsByAddon[addonName]
 	local errors = {}
-	for i, funcAndTest in ipairs(tests) do
+	for _, funcAndTest in ipairs(tests) do
 		local success, err = pcall(funcAndTest.test, funcAndTest.func, kAssertHelpers)
 		if not success then
 			table.insert(errors, err)
 		end
 	end
-	local report = '%s: Test report for %s - %d / %d passed'
-	print(report:format(addonName, addon, #tests - #errors, #tests))
+	local report = '>> Test report for %s - %d / %d passed'
+	print(report:format(addonName, #tests - #errors, #tests))
 	for i, err in ipairs(errors) do
-		local relevant = err:match('^Interface\\AddOns\\' .. addon .. '\\(.+)')
+		local relevant = err:match('^Interface\\AddOns\\' .. addonName .. '\\(.+)')
 		print(('%d. %s'):format(i, relevant or err))
 	end
 end

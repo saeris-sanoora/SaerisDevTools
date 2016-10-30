@@ -1,4 +1,4 @@
-local addonName, addon = ...
+local addon = select(2, ...)
 
 function addon.dump(value)
 	_G.UIParentLoadAddOn('Blizzard_DebugTools')

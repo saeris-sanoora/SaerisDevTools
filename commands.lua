@@ -1,4 +1,4 @@
-local addonName, addon = ...
+local addon = select(2, ...)
 
 local function dispatch(text)
 	local command, args = text:match('^(%S+)%s*(.*)')
