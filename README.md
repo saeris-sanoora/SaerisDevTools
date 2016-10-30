@@ -15,7 +15,7 @@ To lint, first ensure you have Lua 5.1 installed. For Windows, [Lua for Windows]
 
 After that, run a command similar to this from the addon's directory:
 
-	`luacheck *.lua`
+	luacheck *.lua
 
 (From Git Bash on Windows, run `luacheck.bat` instead of `luacheck`.)
 
