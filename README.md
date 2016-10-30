@@ -6,7 +6,7 @@ Install like any other addon: download, extract, copy and paste into the World o
 
 [Download latest from Github](https://github.com/saeris-sanoora/saerisdevtools/archive/master.zip)
 
-When installing, make sure the addon's folder name starts with `!!` to match the `.toc` file.
+When installing, make sure the addon's folder name exactly matches the `.toc` file.
 
 ## Linting
 The addon uses [Luacheck](https://github.com/mpeterv/luacheck) for linting.
